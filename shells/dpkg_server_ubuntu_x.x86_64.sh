@@ -1,0 +1,1 @@
+apt-get install libcairo2 libcairo2-dev make automake autoconf libtool libxml2 libxml2-dev libxslt1-dev libpango1.0-0 libpango1.0-dev g++ g++-4.7 gettext chkconfig 

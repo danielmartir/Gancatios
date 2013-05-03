@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+yum -y install libpng libpng-devel libart_lgpl libart_lgpl-devel gcc-c++ make python-devel pcre python pcre-devel libxslt expat expat-devel freetype httpd php php-devel php-mysql php-gd automake autoconf libtool mysql mysql-devel mysql-server cairo cairo-devel pango pango-devel 
