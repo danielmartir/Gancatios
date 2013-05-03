@@ -6,6 +6,6 @@ ssh_port = '22'
 script_dir = './shells'
 
 node_list = [
-	{'ip':'192.168.1.1', 'user':'root', 'password':'123456'},
-	{'ip':'192.168.1.2', 'user':'root', 'password':'123456'},
+	{'ip':'192.168.1.1', 'user':'root', 'passwd':'123456'},
+	{'ip':'192.168.1.2', 'user':'root', 'passwd':'123456'},
 ]
