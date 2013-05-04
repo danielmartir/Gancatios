@@ -91,11 +91,14 @@ tmp = conf.tmp_dir
 port = conf.ssh_port
 scripts = conf.script_dir
 nodes = conf.node_list
-ssh = Expect()
+expect = Expect()
+
+os.system("sh " + scripts + "dpkg_server_ubuntu_x.x86_64.sh")
+
 for i in range(len(nodes)):
 	ip = nodes[i]['ip']
 	user = nodes[i]['user']
 	passwd = nodes[i]['passwd']
 	#r = ssh.scp 
-	r = ssh.ssh(ip, port, user, passwd, 'ls -la /')
+	r = expect.ssh(ip, port, user, passwd, 'ls -la /')
 	print r
