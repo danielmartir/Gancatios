@@ -20,7 +20,7 @@ cd rrdtool-1.4.7
 ./configure --prefix=/opt/rrdtool;make;make install
 cd ..
 #install ganglia
-wget http://downloads.sourceforge.net/project/ganglia/ganglia%20monitoring%20core/3.5.0/ganglia-3.5.0.tar.gz
+wget http://downloads.sourceforge.net/project/ganglia/ganglia%20monitoring%20core/3.5.0/ganglia-3.5.0.tar.gz?r=http://sourceforge.net/projects/ganglia/files/ganglia/monitoring/core%2F3.5.0%2F&ts=1367578523&use_mirror=jaist
 tar zxf ganglia-3.3.1.tar.gz
 cd ganglia-3.3.1
 #server
