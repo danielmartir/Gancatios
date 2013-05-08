@@ -28,10 +28,11 @@ try:
 	import pexpect
 except ImportError:
 	installer = System()
-	if (installer.GetInstaller() == 'apt-get') or (installer.GetInstaller() == 'zypper'):
-		cmd = '%s install python-pexpect' % (installer.GetInstaller())
-	elif installer.GetInstaller() == 'yum':
-		cmd = '$s install pexpect' % (installer.GetInstaller())
+	inst = install.GetInstaller()
+	if (inst == 'apt-get') or (inst == 'zypper'):
+		cmd = '%s install python-pexpect' % (inst)
+	elif inst == 'yum':
+		cmd = '$s install pexpect' % (inst)
 	else:
 		cmd = 'echo "Not support yet:)"';
 	try:
@@ -66,8 +67,8 @@ class Expect:
 			ssh.close()
 		return r
 
-	def scp(self, ip, port, user, passwd, file = "index.html"):
-		ssh = pexpect.spawn('scp -P %s %s %s@%s:/tmp ' % (port, file, user, ip))
+	def scp(self, ip, port, user, passwd, srcfile = "index.html", distpath):
+		ssh = pexpect.spawn('scp -P %s %s %s@%s:%s ' % (port, file, user, ip, distpath))
 		r= ''
 		try:
 			i = ssh.expect(['password:', 'continue connecting (yes/no)?'], timeout=5)
@@ -87,7 +88,7 @@ class Expect:
 
 packages = conf.package_dir
 logs = conf.log_dir
-tmp = conf.tmp_dir
+c_tmp = conf.tmp_dir
 port = conf.ssh_port
 scripts = conf.script_dir
 nodes = conf.node_list
@@ -99,6 +100,9 @@ for i in range(len(nodes)):
 	ip = nodes[i]['ip']
 	user = nodes[i]['user']
 	passwd = nodes[i]['passwd']
+	cmd = nodes[i]['cmd']
+	r = expect.scp(ip, port, user, passwd, scripts+'dpkg_client_ubuntu_x.x86_64.sh', c_tmp)
+	print r
 	#r = ssh.scp 
-	r = expect.ssh(ip, port, user, passwd, 'ls -la /')
+	r = expect.ssh(ip, port, user, passwd, cmd)
 	print r
