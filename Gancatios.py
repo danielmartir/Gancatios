@@ -75,7 +75,7 @@ class Expect:
 			if i == 0:
 				ssh.sendline(passwd)
 			elif i == 1:
-				ssh.senline('yes')
+				ssh.sendline('yes')
 				ssh.expect('password:')
 				ssh.sendline(passwd)
 		except pexpect.EOF:
