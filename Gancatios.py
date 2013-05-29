@@ -28,7 +28,7 @@ try:
 	import pexpect
 except ImportError:
 	installer = System()
-	inst = install.GetInstaller()
+	inst = installer.GetInstaller()
 	if (inst == 'apt-get') or (inst == 'zypper'):
 		cmd = '%s install python-pexpect' % (inst)
 	elif inst == 'yum':
@@ -67,7 +67,7 @@ class Expect:
 			ssh.close()
 		return r
 
-	def scp(self, ip, port, user, passwd, srcfile = "index.html", distpath):
+	def scp(self, ip, port, user, passwd, srcfile, distpath):
 		ssh = pexpect.spawn('scp -P %s %s %s@%s:%s ' % (port, file, user, ip, distpath))
 		r= ''
 		try:
