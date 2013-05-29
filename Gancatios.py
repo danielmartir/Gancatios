@@ -88,7 +88,7 @@ class Expect:
 
 packages = conf.package_dir
 logs = conf.log_dir
-c_tmp = conf.tmp_dir
+c_tmp = conf.client_tmp_dir
 port = conf.ssh_port
 scripts = conf.script_dir
 nodes = conf.node_list
